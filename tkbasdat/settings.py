@@ -102,7 +102,7 @@ WSGI_APPLICATION = 'tkbasdat.wsgi.application'
 #     }
 # }
 
-DATABASES_URL = "postgres://oxlcbtvpaomqpb:8bf2bf2edc2ec77654c2564351901f2e364ad3bdacf9e5a2c27be0e7b4e8e8b4@ec2-3-229-11-55.compute-1.amazonaws.com:5432/db6pv5kg34mbb6"
+DATABASE_URL = "postgres://oxlcbtvpaomqpb:8bf2bf2edc2ec77654c2564351901f2e364ad3bdacf9e5a2c27be0e7b4e8e8b4@ec2-3-229-11-55.compute-1.amazonaws.com:5432/db6pv5kg34mbb6"
 DATABASES = {
     'default': dj_database_url.config(),
 }
