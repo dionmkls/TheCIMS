@@ -95,12 +95,19 @@ WSGI_APPLICATION = 'tkbasdat.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+DATABASES_URL = "postgres://oxlcbtvpaomqpb:8bf2bf2edc2ec77654c2564351901f2e364ad3bdacf9e5a2c27be0e7b4e8e8b4@ec2-3-229-11-55.compute-1.amazonaws.com:5432/db6pv5kg34mbb6"
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(),
 }
+DATABASES['default'] = dj_database_url.config()
+DATABASES['default'] = dj_database_url.config(default=DATABASE_URL)
 
 # Set database settings automatically using DATABASE_URL.
 if PRODUCTION:
