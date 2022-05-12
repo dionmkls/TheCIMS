@@ -2,10 +2,18 @@
 {% load static %}
 
 {% block meta %}
-<title>Hello, world!</title>
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+<title>The CIMS F-11</title>
 {% endblock meta %}
 
 {% block content %}
-  <h1>Hello, world!</h1>
-  <p><img src="{% static 'img/django-logo-negative.svg' %}"></p>
+<div class="container">
+  <div class="row text-center mt-3 py-5">
+      <div class="col mb-3">
+        <h2>Selamat datang di The CIMS!</h2>
+      </div>
+  </div>
+</div>
+
+<p><img width= 700 class="rounded mx-auto d-block" src="https://simsvip.com/wp-content/uploads/2015/01/10934057_835962823109456_7931451961805000800_n.png"></p>
 {% endblock content %}
