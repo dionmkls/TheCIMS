@@ -22,11 +22,7 @@ def index(request):
         with connection.cursor() as cursor:
             cursor.execute("set search_path to cims")
             # Check apakah Admin
-            cursor.execute(f"""SELECT * FROM AKUN
-                NATURAL JOIN ADMIN""")
-            test = cursor.fetchall()
-            print(request.POST["username"])
-            print(test)
+
             cursor.execute(f"""SELECT * FROM AKUN
                 NATURAL JOIN ADMIN
                 WHERE username = '{request.POST["username"]}'""")

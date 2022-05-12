@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+<title>The CIMS F-11</title>
+{% endblock meta %}
+
+{% block content %}
+<div class="container">
+  <div class="row text-center mt-3 py-5">
+      <div class="col mb-3">
+        <h2>Koleksi Tokoh</h2>
+      </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md mb-3">
+      <div class="table-responsive">
+          <table id="example" class="table table-hover">
+              <thead>
+                  <tr>
+                  {% if request.session.tipe == 'admin'%}
+                  <th scope="col">Username Pengguna</th>
+                  {% endif %}
+                  <th scope="col">Tokoh</th>
+                  <th scope="col">Id Koleksi</th>
+                  {% if request.session.tipe == 'admin'%}
+                  <th scope="col"> Action</th>
+                  {% endif %}
+                  </tr>
+              </thead>
+              <tbody>
+                {% for pd in row %}
+                <tr>
+                  {% if request.session.tipe == 'admin'%}
+                  <td>{{pd.username_pengguna}}</td>
+                  {% endif %}
+                  <td>{{pd.nama_tokoh}}</td>
+                  <td>{{pd.id_koleksi}}</td>
+
+                  {% if request.session.tipe == 'admin'%}
+                  <td> <button type='submit'> Jual </button> </td>
+                  {% endif %}
+                {% endfor %}
+              </tbody>
+          </table>
+      </div>
+    </div>
+  </div>  
+</div>
+
+{% endblock content %}
