@@ -15,7 +15,7 @@ from pathlib import Path
 
 import dj_database_url
 
-DATABASE_URL = "postgres://oxlcbtvpaomqpb:8bf2bf2edc2ec77654c2564351901f2e364ad3bdacf9e5a2c27be0e7b4e8e8b4@ec2-3-229-11-55.compute-1.amazonaws.com:5432/db6pv5kg34mbb6"
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -103,6 +103,7 @@ WSGI_APPLICATION = 'tkbasdat.wsgi.application'
 #     }
 # }
 
+DATABASE_URL = "postgres://oxlcbtvpaomqpb:8bf2bf2edc2ec77654c2564351901f2e364ad3bdacf9e5a2c27be0e7b4e8e8b4@ec2-3-229-11-55.compute-1.amazonaws.com:5432/db6pv5kg34mbb6"
 
 DATABASES = {
     'default': dj_database_url.config(),
@@ -110,9 +111,17 @@ DATABASES = {
 DATABASES['default'] = dj_database_url.config()
 DATABASES['default'] = dj_database_url.config(default=DATABASE_URL)
 
+import sys
+if 'test' in sys.argv:
+    DATABASES['default'] = {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'mydatabase'
+    }
 # Set database settings automatically using DATABASE_URL.
 if PRODUCTION:
-    DATABASES['default'] = dj_database_url.config()
+    DATABASES['default'] = dj_database_url.config(
+      conn_max_age=600,ssl_require=True
+    )
 
 
 # Password validation
