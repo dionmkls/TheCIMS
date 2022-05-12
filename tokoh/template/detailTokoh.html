@@ -1,0 +1,47 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+{% block meta %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+<title>Detail Tokoh</title>
+{% endblock meta %}
+
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-6 mb-3">
+    <label for="namaPengguna" class="form-label">Nama:</label>
+    <input type="text" value="{{ detail.nama }}" class="form-control" id="namaPengguna"disabled>
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-md-6 mb-3">
+    <label for="idRambut" class="form-label">ID Rambut:</label>
+    <input type="text" value="{{ detail.idrambut }}" class="form-control" id="idRambut"disabled>
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-md-6 mb-3">
+    <label for="idMata" class="form-label">ID Mata</label>
+    <input type="text" value="{{ detail.idmata }}" class="form-control" id="idMata"disabled>
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-md-6 mb-3">
+    <label for="idRumah" class="form-label">ID Rumah</label>
+    <input type="text" value="{{ detail.idrumah }}" class="form-control" id="idRumah"disabled>
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-md-6 mb-3">
+    <label for="warnaKulit" class="form-label">Warna Kulit</label>
+    <input type="text" value="{{ detail.warnaKulit }}" class="form-control" id="warnaKulit"disabled>
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-md-6 mb-3">
+    <label for="pekerjaan" class="form-label">Pekerjaan</label>
+    <input type="text" value="{{ detail.pekerjaan }}" class="form-control" id="pekerjaan"disabled>
+  </div>
+</div>
+
+{% endblock content %}
