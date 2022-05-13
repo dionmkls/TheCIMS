@@ -1,10 +1,19 @@
 
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.db import connection
 
 
 # Create your views here.
 def index(request):
+
+  if "pengguna" in request.session:
+    isLogged = True
+  else:
+    isLogged = False
+
+  if not isLogged:
+    return redirect('main:home')
+
   with connection.cursor() as cursor:
 
     uName = request.session.get("pengguna")

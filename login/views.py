@@ -9,7 +9,7 @@ def index(request):
     # Check apakah sudah logged in, bila iya redirect ke landing
     print("cek")
     if request.session.get("pengguna", False):
-        return redirect("home/index.html")
+        return redirect("main:home")
     print(request)
 
     if request.method == "POST":
