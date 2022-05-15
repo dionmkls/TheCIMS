@@ -3,44 +3,51 @@
 
 {% block meta %}
 <link rel="stylesheet" href="{% static 'css/login.css' %}">
-<title>Detail Tokoh</title>
+<title>The CIMS F-11</title>
 {% endblock meta %}
 
 {% block content %}
-<div class="row justify-content-center">
-  <div class="col-md-6 mb-3">
-    <label for="namaPengguna" class="form-label">Nama:</label>
-    <input type="text" value="{{ response.nama }}" class="form-control" id="namaPengguna"disabled>
-  </div>
+<div class="container">
+  <div class="row text-center mt-3 py-5">
+    <div class="col mb-3">
+      <h2>Detail Tokoh</h2>
+    </div>
 </div>
-<div class="row justify-content-center">
-  <div class="col-md-6 mb-3">
-    <label for="idRambut" class="form-label">ID Rambut:</label>
-    <input type="text" value="{{ response.idrambut }}" class="form-control" id="idRambut"disabled>
+    <div class="row justify-content-center">
+    <div class="col-md-6 mb-3">
+      <label for="namaPengguna" class="form-label">Nama:</label>
+      <input type="text" value="{{ response.nama }}" class="form-control" id="namaPengguna"disabled>
+    </div>
   </div>
-</div>
-<div class="row justify-content-center">
-  <div class="col-md-6 mb-3">
-    <label for="idMata" class="form-label">ID Mata</label>
-    <input type="text" value="{{ response.idmata }}" class="form-control" id="idMata"disabled>
+  <div class="row justify-content-center">
+    <div class="col-md-6 mb-3">
+      <label for="idRambut" class="form-label">ID Rambut:</label>
+      <input type="text" value="{{ response.idrambut }}" class="form-control" id="idRambut"disabled>
+    </div>
   </div>
-</div>
-<div class="row justify-content-center">
-  <div class="col-md-6 mb-3">
-    <label for="idRumah" class="form-label">ID Rumah</label>
-    <input type="text" value="{{ response.idrumah }}" class="form-control" id="idRumah"disabled>
+  <div class="row justify-content-center">
+    <div class="col-md-6 mb-3">
+      <label for="idMata" class="form-label">ID Mata: </label>
+      <input type="text" value="{{ response.idmata }}" class="form-control" id="idMata"disabled>
+    </div>
   </div>
-</div>
-<div class="row justify-content-center">
-  <div class="col-md-6 mb-3">
-    <label for="warnaKulit" class="form-label">Warna Kulit</label>
-    <input type="text" value="{{ response.warnaKulit }}" class="form-control" id="warnaKulit"disabled>
+  <div class="row justify-content-center">
+    <div class="col-md-6 mb-3">
+      <label for="idRumah" class="form-label">ID Rumah: </label>
+      <input type="text" value="{{ response.idrumah }}" class="form-control" id="idRumah"disabled>
+    </div>
   </div>
-</div>
-<div class="row justify-content-center">
-  <div class="col-md-6 mb-3">
-    <label for="pekerjaan" class="form-label">Pekerjaan</label>
-    <input type="text" value="{{ response.pekerjaan }}" class="form-control" id="pekerjaan"disabled>
+  <div class="row justify-content-center">
+    <div class="col-md-6 mb-3">
+      <label for="warnaKulit" class="form-label">Warna Kulit: </label>
+      <input type="text" value="{{ response.warnaKulit }}" class="form-control" id="warnaKulit"disabled>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-6 mb-3">
+      <label for="pekerjaan" class="form-label">Pekerjaan: </label>
+      <input type="text" value="{{ response.pekerjaan }}" class="form-control" id="pekerjaan"disabled>
+    </div>
   </div>
 </div>
 

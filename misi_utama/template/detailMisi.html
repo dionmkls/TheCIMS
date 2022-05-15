@@ -1,0 +1,90 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+{% block meta %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+<title>The CIMS F-11</title>
+{% endblock meta %}
+
+{% block content %}
+<div class="container">
+  <div class="row text-center mt-3 py-5">
+    <div class="col mb-3">
+      <h2>Detail Misi Utama </h2>
+    </div>
+</div>
+    <div class="row justify-content-center">
+    <div class="col-md-6 mb-3">
+      <label for="namaPengguna" class="form-label">Nama:</label>
+      <input type="text" value="{{ dm.nama }}" class="form-control" id="namaPengguna"disabled>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-6 mb-3">
+      <label for="idRambut" class="form-label">Efek Energi:</label>
+      <input type="text" value="{{ dm.efek_energi }}" class="form-control" id="idRambut"disabled>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-6 mb-3">
+      <label for="idMata" class="form-label">Efek Hubungan Sosial</label>
+      <input type="text" value="{{ dm.efek_hubungan_sosial }}" class="form-control" id="idMata"disabled>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-6 mb-3">
+      <label for="idRumah" class="form-label">Efek Kelaparan</label>
+      <input type="text" value="{{ dm.efek_kelaparan }}" class="form-control" id="idRumah"disabled>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-6 mb-3">
+        <label for="idRambut" class="form-label">Syarat Energi:</label>
+        <input type="text" value="{{ dm.syarat_energi }}" class="form-control" id="idRambut"disabled>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-6 mb-3">
+        <label for="idRambut" class="form-label">Syarat Hubungan Sosial:</label>
+        <input type="text" value="{{ dm.syarat_hubungan_sosial }}" class="form-control" id="idRambut"disabled>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-6 mb-3">
+        <label for="idRambut" class="form-label">Efek Energi:</label>
+        <input type="text" value="{{ dm.efek_energi }}" class="form-control" id="idRambut"disabled>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-6 mb-3">
+      <label for="pekerjaan" class="form-label">Completion time:</label>
+      <input type="text" value="{{ dm.completion_time }}" class="form-control" id="pekerjaan"disabled>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-6 mb-3">
+        <label for="idRambut" class="form-label">Reward Koin:</label>
+        <input type="text" value="{{ dm.reward_koin }}" class="form-control" id="idRambut"disabled>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-6 mb-3">
+        <label for="idRambut" class="form-label">Reward XP:</label>
+        <input type="text" value="{{ dm.reward_xp }}" class="form-control" id="idRambut"disabled>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-6 mb-3">
+        <label for="idRambut" class="form-label">Deskripsi:</label>
+        <input type="text" value="{{ dm.deskripsi }}" class="form-control" id="idRambut"disabled>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
