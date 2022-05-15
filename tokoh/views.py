@@ -6,9 +6,13 @@ from django.db import connection
 
 # Create your views here.
 def readTokoh(request):
-    #ini buat apa
-    if not (request.session.get("pengguna", False)):
-        return redirect("main/home.html")
+    if "pengguna" in request.session:
+        isLogged = True
+    else:
+        isLogged = False
+
+    if not isLogged:
+        return redirect('main:home')
 
     if request.session['tipe'] == 'Admin':
         with connection.cursor() as cursor:

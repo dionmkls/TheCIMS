@@ -12,7 +12,9 @@
     <table id="example" class="table table-hover">
         <thead>
           <tr>
+            {{% if request.session.tipe == 'admin'%}
             <th scope="col">Username Pemain</th>
+            {% endif %}
             <th scope="col">Nama</th>
             <th scope="col">Jenis Kelamin</th>
             <th scope="col">Status</th>
@@ -28,7 +30,7 @@
         <tbody>
             {% for t in tokoh %}
             <tr>
-                {{% if request.session.tipe == 'Pemain'%}
+                {{% if request.session.tipe == 'Admin'%}
                     <td>{{t.username_pengguna}}</td>
                 {% endif %}
                 <td>{{t.nama}}</td>
