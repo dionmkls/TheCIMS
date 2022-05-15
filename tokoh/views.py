@@ -28,11 +28,11 @@ def readTokoh(request):
         with connection.cursor() as cursor:
             cursor.execute("set search_path to cims")
             cursor.execute(
-                "SELECT Username_pengguna, Nama, Jenis_kelamin, Status, XP, Energi, Kelaparan, Hubungan_sosial, Warna_kulit, Level FROM Tokoh where"+ var +"= username_pengguna")
+                "SELECT Username_pengguna, Nama, Jenis_kelamin, Status, XP, Energi, Kelaparan, Hubungan_sosial, Warna_kulit, Level FROM Tokoh WHERE"+ var +"= username_pengguna")
             tokoh = dictfetchall()
             context = {'tokoh': tokoh}
 
-    return render(request,'index.html',context)
+    return render(request,'tokoh/list_tokoh.html',context)
 
 def detailTokoh(request):
     if "pengguna" in request.session:
