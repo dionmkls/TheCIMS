@@ -16,6 +16,7 @@ def readTokoh(request):
 
     if request.session['tipe'] == 'Admin':
         with connection.cursor() as cursor:
+            cursor.execute("set search_path to cims")
             cursor.execute(
                 "SELECT Username_pengguna, Nama, Jenis_kelamin, Status, XP, Energi, Kelaparan, Hubungan_sosial, Warna_kulit, Level FROM Tokoh")
             tokoh = dictfetchall()
@@ -25,6 +26,7 @@ def readTokoh(request):
         var = request.session.get("pengguna")
 
         with connection.cursor() as cursor:
+            cursor.execute("set search_path to cims")
             cursor.execute(
                 "SELECT Username_pengguna, Nama, Jenis_kelamin, Status, XP, Energi, Kelaparan, Hubungan_sosial, Warna_kulit, Level FROM Tokoh where"+ var +"= username_pengguna")
             tokoh = dictfetchall()
@@ -33,8 +35,13 @@ def readTokoh(request):
     return render(request,'index.html',context)
 
 def detailTokoh(request):
-    if not (request.session.get("pengguna", False)):
-        return redirect("main/home.html")
+    if "pengguna" in request.session:
+        isLogged = True
+    else:
+        isLogged = False
+
+    if not isLogged:
+        return redirect('main:home')
         
     if request.method == "POST":
         #username
@@ -48,6 +55,7 @@ def detailTokoh(request):
         #Nama
         response['nama'] = nama
         #ID rambut
+        cursor.execute("set search_path to cims")
         cursor.execute(
                 "SELECT Id_rambut FROM Tokoh WHERE Username_pengguna =" + uname + "AND nama ="+nama)
         response['idrambut'] = dictfetchall()
