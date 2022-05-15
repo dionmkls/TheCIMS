@@ -64,6 +64,8 @@ INSTALLED_APPS = [
     'warna_kulit',
     'level',
     'menggunakan_apparel',
+    'pekerjaan',
+    'bekerja',
     'makan',
     'makanan',
     'menjalankan_misi',

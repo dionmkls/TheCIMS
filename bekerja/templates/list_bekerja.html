@@ -33,13 +33,13 @@
                 {% for pd in row %}
                 <tr>
                   {% if request.session.tipe == 'Admin'%}
-                  <td>{{pd.Username_pengguna}}</td>
+                  <td>{{pd.username_pengguna}}</td>
                   {% endif %}
-                  <td>{{pd.Nama}}</td>
-                  <td>{{pd.Nama_pekerjaan}}</td>
-                  <td>{{pd.Timestamp}}</td>
-                  <td>{{pd.Jumlah_keberangkatan}}</td>
-                  <td>{{pd.Honor}}</td>
+                  <td>{{pd.nama}}</td>
+                  <td>{{pd.nama_pekerjaan}}</td>
+                  <td>{{pd.timestamp}}</td>
+                  <td>{{pd.jumlah_keberangkatan}}</td>
+                  <td>{{pd.honor}}</td>
                 {% endfor %}
               </tbody>
           </table>
