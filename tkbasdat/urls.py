@@ -29,7 +29,11 @@ urlpatterns = [
     path('menggunakan_apparel/', include('menggunakan_apparel.urls')),
     path('bekerja/', include('bekerja.urls')),
     path('pekerjaan/', include('pekerjaan.urls')),
+<<<<<<< HEAD
     path('makan/', include('makan.urls')),
     path('makanan/', include('makanan.urls'))
 ]
 
+=======
+]
+>>>>>>> 011472a7d69d75ec4a3bd28090238f88a89ae10e
