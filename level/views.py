@@ -21,13 +21,32 @@ def index(request):
   if not isLogged:
     return redirect('main:home')
 
+  # with connection.cursor() as cursor:
+  #   cursor.execute("set search_path to cims")
+  #   cursor.execute(f"""SELECT * FROM LEVEL""")
+  #   row = dictfetchall(cursor)
+  #   print(row)
+  # context = {'row':row}
+  # return render(request, 'level_index.html', context)
+
   with connection.cursor() as cursor:
     cursor.execute("set search_path to cims")
-    cursor.execute(f"""SELECT * FROM LEVEL""")
-    row = dictfetchall(cursor)
-    print(row)
-  context = {'row':row}
-  return render(request, 'level_index.html', context)
+    cursor.execute(f"""SELECT * FROM LEVEL AS L
+    WHERE L.level IN (SELECT LV.level FROM LEVEL AS LV
+    JOIN TOKOH ON LV.level = TOKOH.level);""")
+    result = dictfetchall(cursor)
+
+    cursor.execute(f"""SELECT * FROM LEVEL AS L 
+    WHERE L.level NOT IN (SELECT LV.level FROM LEVEL AS LV
+    JOIN TOKOH ON LV.level = TOKOH.level);""")
+    resultx = dictfetchall(cursor)
+
+    print(result)
+    print(resultx)
+  #   row = dictfetchall(cursor)
+  #   print(row)
+  # context = {'row':row}
+  return render(request, 'level_index.html', {'data':result, 'updateable':resultx})
 
 def createLevel(request):
     return render(request, 'create_level.html')

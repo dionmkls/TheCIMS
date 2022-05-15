@@ -7,6 +7,7 @@
 {% endblock meta %}
 
 {% block content %}
+
 <div class="container">
   <div class="row text-center mt-3 py-5">
       <div class="col mb-3">
@@ -26,12 +27,22 @@
                   </tr>
               </thead>
               <tbody>
-                {% for pd in row %}
+                {% for x in updateable %}
                 <tr>
-                  <td>{{pd.kode}}</td>
+                  <td>{{x.kode}}</td>
                   {% if request.session.tipe == 'Admin'%}
                   <td><a href="#" class="btn btn-info" role="button">Delete</a></td>
                   {% endif %}
+                </tr>
+                {% endfor %}
+
+                {% for x in data %}
+                <tr>
+                  <td>{{x.kode}}</td>
+                  {% if request.session.tipe == 'Admin'%}
+                  <td><a href="#" class="btn btn-info disabled" role="button">Delete</a></td>
+                  {% endif %}
+                </tr>
                 {% endfor %}
               </tbody>
           </table>
