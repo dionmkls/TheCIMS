@@ -21,7 +21,7 @@
                   <tr>
                   <th scope="col">Nama Pekerjaan</th>
                   <th scope="col">Base Salary</th>
-                  {% if request.session.tipe == 'admin'%}
+                  {% if request.session.tipe == 'Admin'%}
                   <th scope="col">Action</th>
                   {% endif %}
                   </tr>
@@ -31,7 +31,7 @@
                 <tr>
                   <td>{{pd.Nama}}</td>
                   <td>{{pd.Base_honor}}</td>
-                  {% if request.session.tipe == 'admin'%}
+                  {% if request.session.tipe == 'Admin'%}
                   <td> <button type='submit'> Update </button> </td>
                   <td> <button type='submit'> Delete </button> </td>                  
                   {% endif %}
