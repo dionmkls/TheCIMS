@@ -27,4 +27,6 @@ urlpatterns = [
     path('warna_kulit/', include('warna_kulit.urls')),
     path('level/', include('level.urls')),
     path('menggunakan_apparel/', include('menggunakan_apparel.urls')),
+    path('bekerja/', include('bekerja.urls')),
+    path('pekerjaan/', include('pekerjaan.urls')),
 ]
