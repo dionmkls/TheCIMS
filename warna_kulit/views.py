@@ -23,11 +23,22 @@ def index(request):
 
   with connection.cursor() as cursor:
     cursor.execute("set search_path to cims")
-    cursor.execute(f"""SELECT * FROM WARNA_KULIT""")
-    row = dictfetchall(cursor)
-    print(row)
-  context = {'row':row}
-  return render(request, 'warnakulit.html', context)
+    cursor.execute(f"""SELECT * FROM WARNA_KULIT 
+    WHERE KODE IN (SELECT KODE FROM WARNA_KULIT
+    JOIN TOKOH ON WARNA_KULIT.KODE = TOKOH.WARNA_KULIT);""")
+    result = dictfetchall(cursor)
+
+    cursor.execute(f"""SELECT * FROM WARNA_KULIT
+    WHERE KODE NOT IN (SELECT KODE FROM WARNA_KULIT
+    JOIN TOKOH ON WARNA_KULIT.KODE = TOKOH.WARNA_KULIT);""")
+    resultx = dictfetchall(cursor)
+
+    print(result)
+    print(resultx)
+  #   row = dictfetchall(cursor)
+  #   print(row)
+  # context = {'row':row}
+  return render(request, 'warnakulit.html', {'data':result, 'updateable':resultx})
 
 def createWarnaKulit(request):
   return render(request, 'create_warna_kulit.html')
