@@ -43,6 +43,8 @@ def createKoleTokoh(request):
   if request.session["tipe"] == 'Admin':
     return redirect('main:home')
   return render(request, 'create_kt.html')
+
+  
 def dictfetchall(cursor):
     "Returns all rows from a cursor as a dict"
     desc = cursor.description
