@@ -21,5 +21,6 @@ urlpatterns = [
     path('', include('main.urls')),
     path('login/', include('login.urls')),
     path('tokoh/', include('tokoh.urls')),
-    path('makan/', include('makan.urls'))
+    path('makan/', include('makan.urls')),
+    path('makanan/', include('makanan.urls'))
 ]
