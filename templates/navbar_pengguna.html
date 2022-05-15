@@ -1,0 +1,121 @@
+<nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark">
+
+    <a 
+        href="{% url 'main:home' %}" 
+        class="navbar-brand mb-0 h1">
+        <img 
+        class="d-inline-block align-top" 
+        src="https://www.pngkey.com/png/full/147-1474253_pixels-plumbobs-sims-4-plumbob-png.png" 
+        height="30" alt="">
+        TheCIMS
+    </a>
+    <button 
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#navbarNav"
+    class="navbar-toggler"
+    aria-controls="navbarNav"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span> 
+    </button>
+    <div 
+        class="collapse navbar-collapse" 
+        id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active dropdown">
+                <a href="#" class="nav-link dropdown-toggle"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false">
+                    Tokoh
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a href="#" class="dropdown-item">Buat Tokoh</a></li>
+                    <li><a href="#" class="dropdown-item">List Tokoh</a></li>
+                    <li><a href="{% url 'warna_kulit:index' %}" class="dropdown-item">List Warna Kulit</a></li>
+                    <li><a href="{% url 'level:index' %}" class="dropdown-item">List Level</a></li>
+                </ul>
+            </li>
+            <li class="nav-item active">
+                <a href="#" class="nav-link dropdown-toggle"
+                id="navbarDropdownn"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false">
+                    Pekerjaan
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownn">
+                    <li><a href="#" class="dropdown-item">List Pekerjaan</a></li>
+                    <li><a href="#" class="dropdown-item">Buat Bekerja</a></li>
+                    <li><a href="#" class="dropdown-item">List Bekerja</a></li>
+                </ul>
+            </li>
+            <li class="nav-item active">
+                <a href="#" class="nav-link dropdown-toggle"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false">
+                    Misi
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a href="#" class="dropdown-item">List Misi Utama</a></li>
+                    <li><a href="#" class="dropdown-item">Buat Menjalankan Misi Utama</a></li>
+                    <li><a href="#" class="dropdown-item">List Menjalankan Misi Utama</a></li>
+                </ul>
+            </li>
+            <li class="nav-item active">
+                <a href="#" class="nav-link dropdown-toggle"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false">
+                    Makan
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a href="#" class="dropdown-item">List Makanan<a></li>
+                    <li><a href="#" class="dropdown-item">Buat Makanan</a></li>
+                    <li><a href="#" class="dropdown-item">List Makan</a></li>
+                </ul>
+            </li>
+            <li class="nav-item active">
+                <a href="#" class="nav-link dropdown-toggle"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false">
+                    Koleksi
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a href="#" class="dropdown-item">List Koleksi<a></li>
+                    <li><a href="#" class="dropdown-item">List Kategori Apparel</a></li>
+                    <li><a href="#" class="dropdown-item">Buat Koleksi Tokoh</a></li>
+                    <li><a href="#" class="dropdown-item">List Koleksi Tokoh</a></li>
+                </ul>
+            </li>
+            <li class="nav-item active">
+                <a href="#" class="nav-link dropdown-toggle"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false">
+                    Penggunaan
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a href="#" class="dropdown-item">Buat Menggunakan Apparel<a></li>
+                    <li><a href="#" class="dropdown-item">List Menggunakan Apparel</a></li>
+                    <li><a href="#" class="dropdown-item">Buat Menggunakan Barang</a></li>
+                    <li><a href="#" class="dropdown-item">List Menggunakan Barang</a></li>
+                </ul>
+            </li>
+            <li class="nav-item active">
+                <a href="{% url 'login:logout' %}" class="nav-link">
+                    Logout
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
