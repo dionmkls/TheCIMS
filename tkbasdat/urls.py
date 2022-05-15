@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import include, path
+from django.urls import include, path, re_path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,4 +23,11 @@ urlpatterns = [
     path('tokoh/', include('tokoh.urls')),
     path('makan/', include('makan.urls')),
     path('makanan/', include('makanan.urls'))
+    path('kategori_apparel/', include('kategori_apparel.urls')),
+    path('koleksi/', include('koleksi.urls')),
+    path('koleksi_tokoh/', include('koleksi_tokoh.urls')),
+    path('tokoh/', include('tokoh.urls')),
+    path('bekerja/', include('bekerja.urls')),
+    path('pekerjaan/', include('pekerjaan.urls')),
+>>>>>>> tkbasdat/urls.py
 ]

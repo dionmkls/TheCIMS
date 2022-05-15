@@ -58,6 +58,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main',
     'login',
+    'kategori_apparel',
+    'koleksi',
+    'koleksi_tokoh',
 ]
 
 MIDDLEWARE = [
