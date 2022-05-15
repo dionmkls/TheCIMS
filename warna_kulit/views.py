@@ -28,3 +28,6 @@ def index(request):
     print(row)
   context = {'row':row}
   return render(request, 'warnakulit.html', context)
+
+def createWarnaKulit(request):
+  return render(request, 'create_warna_kulit.html')

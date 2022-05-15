@@ -34,9 +34,9 @@
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li><a href="#" class="dropdown-item">List Tokoh</a></li>
-                    <li><a href="#" class="dropdown-item">Buat Warna Kulit</a></li>
+                    <li><a href="{% url 'warna_kulit:createWarnaKulit' %}" class="dropdown-item">Buat Warna Kulit</a></li>
                     <li><a href="{% url 'warna_kulit:index' %}" class="dropdown-item">List Warna Kulit</a></li>
-                    <li><a href="#" class="dropdown-item">Buat Level</a></li>
+                    <li><a href="{% url 'level:createLevel' %}" class="dropdown-item">Buat Level</a></li>
                     <li><a href="{% url 'level:index' %}" class="dropdown-item">List Level</a></li>
                 </ul>
             </li>

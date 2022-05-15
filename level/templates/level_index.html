@@ -32,8 +32,7 @@
                   <td>{{pd.level}}</td>
                   <td>{{pd.xp}}</td>
                   {% if request.session.tipe == 'Admin'%}
-                  <td><button type='submit'>Update</button></td>
-                  <td><button type='submit'>Delete</button></td>
+                  <td><a href="{% url 'level:updateLevel' %}" class="btn btn-info" role="button">Update</a></td>
                   {% endif %}
                 {% endfor %}
               </tbody>

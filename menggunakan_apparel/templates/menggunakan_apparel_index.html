@@ -40,7 +40,7 @@
                   <td>{{pd.nama_pekerjaan}}</td>
                   <td>{{pd.kategori_apparel}}</td>
                   {% if request.session.tipe == 'Admin'%}
-                  <td><button type='submit'>Lepas</button></td>
+                  <td><a href="#" class="btn btn-info" role="button">Lepas</a></td>
                   {% endif %}
                 {% endfor %}
               </tbody>

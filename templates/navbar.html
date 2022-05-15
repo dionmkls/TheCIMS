@@ -23,13 +23,9 @@
     <div 
         class="collapse navbar-collapse" 
         id="navbarNav">
-        {% if request.session.tipe == "Individu" %}
-            {% include 'navbar_individu.html' %}
-          {% endif %}   
-
-          {% if request.session.tipe == "Organisasi" %}
-            {% include 'navbar_penggalangan_dana.html' %}
-          {% endif %}  
+        {% if request.session.tipe == "Pemain" %}
+            {% include 'navbar_pengguna.html' %}
+          {% endif %}    
 
           {% if request.session.tipe == "Admin" %}
             {% include 'navbar_admin.html' %}

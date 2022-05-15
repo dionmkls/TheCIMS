@@ -6,4 +6,5 @@ app_name = 'menggunakan_apparel'
 
 urlpatterns = [
     path('',views.index, name='index'),
+    path('createMenggunakanApparel/',views.createMenggunakanApparel, name='createMenggunakanApparel'),
 ]
