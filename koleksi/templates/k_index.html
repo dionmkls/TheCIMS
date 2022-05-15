@@ -16,9 +16,24 @@
                 List Koleksi
             </button>
           </a>
+          <a href="{% url 'kategori_apparel:create_ka' %}">
+            <button class="btn btn-outline-primary" type="button">
+                Buat Kategori Apparel
+            </button>
+          </a>
+          <a href="{% url 'kategori_apparel:index' %}">
+            <button class="btn btn-outline-primary" type="button">
+                List Kategori Apparel
+            </button>
+          </a>
           <a href="{% url 'koleksi_tokoh:index' %}">
             <button class="btn btn-outline-primary" type="button">
                 List Koleksi Tokoh
+            </button>
+          </a>
+          <a href="{% url 'koleksi_tokoh:create_kt' %}">
+            <button class="btn btn-outline-primary" type="button">
+                Buat Koleksi Tokoh
             </button>
           </a>
       </div>

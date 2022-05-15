@@ -27,13 +27,26 @@
                   </tr>
               </thead>
               <tbody>
-                {% for pd in row %}
+                {% for x in updateable %}
                 <tr>
-                  <td>{{pd.level}}</td>
-                  <td>{{pd.xp}}</td>
+                  <td>{{x.level}}</td>
+                  <td>{{x.xp}}</td>
                   {% if request.session.tipe == 'Admin'%}
                   <td><a href="{% url 'level:updateLevel' %}" class="btn btn-info" role="button">Update</a></td>
+                  <td><a href="#" class="btn btn-info" role="button">Delete</a></td>
                   {% endif %}
+                </tr>
+                {% endfor %}
+
+                {% for x in data %}
+                <tr>
+                  <td>{{x.level}}</td>
+                  <td>{{x.xp}}</td>
+                  {% if request.session.tipe == 'Admin'%}
+                  <td><a href="{% url 'level:updateLevel' %}" class="btn btn-info" role="button">Update</a></td>
+                  <td><a href="#" class="btn btn-info disabled" role="button">Delete</a></td>
+                  {% endif %}
+                </tr>
                 {% endfor %}
               </tbody>
           </table>

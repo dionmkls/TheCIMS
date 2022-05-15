@@ -33,7 +33,7 @@
                     Tokoh
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a href="#" class="dropdown-item">List Tokoh</a></li>
+                    <li><a href="{% url 'tokoh:list_tokoh' %}" class="dropdown-item">List Tokoh</a></li>
                     <li><a href="{% url 'warna_kulit:createWarnaKulit' %}" class="dropdown-item">Buat Warna Kulit</a></li>
                     <li><a href="{% url 'warna_kulit:index' %}" class="dropdown-item">List Warna Kulit</a></li>
                     <li><a href="{% url 'level:createLevel' %}" class="dropdown-item">Buat Level</a></li>
@@ -64,8 +64,8 @@
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li><a href="#" class="dropdown-item">Buat Misi Utama</a></li>
-                    <li><a href="#" class="dropdown-item">List Misi Utama</a></li>
-                    <li><a href="#" class="dropdown-item">List Menjalankan Misi Utama</a></li>
+                    <li><a href="{% url 'misi_utama:list_misi_utama' %}" class="dropdown-item">List Misi Utama</a></li>
+                    <li><a href="{% url 'menjalankan_misi:list_menjalankan_misi_utama' %}" class="dropdown-item">List Menjalankan Misi Utama</a></li>
                 </ul>
             </li>
             <li class="nav-item active">
@@ -78,8 +78,8 @@
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li><a href="#" class="dropdown-item">Buat Makanan<a></li>
-                    <li><a href="#" class="dropdown-item">List Makanan</a></li>
-                    <li><a href="#" class="dropdown-item">List Makan</a></li>
+                    <li><a href="{% url 'makanan:list_makanan' %}" class="dropdown-item">List Makanan</a></li>
+                    <li><a href="{% url 'makan:list_makan' %}" class="dropdown-item">List Makan</a></li>
                 </ul>
             </li>
             <li class="nav-item active">

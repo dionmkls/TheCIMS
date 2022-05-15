@@ -25,7 +25,7 @@
                   <th scope="col">Warna</th>
                   <th scope="col">Nama Pekerjaan</th>
                   <th scope="col">Kategori</th>
-                  {% if request.session.tipe == 'Admin'%}
+                  {% if request.session.tipe == 'Pemain'%}
                   <th scope="col">Action</th>
                   {% endif %}
                   </tr>
@@ -39,7 +39,7 @@
                   <td>{{pd.warna_apparel}}</td>
                   <td>{{pd.nama_pekerjaan}}</td>
                   <td>{{pd.kategori_apparel}}</td>
-                  {% if request.session.tipe == 'Admin'%}
+                  {% if request.session.tipe == 'Pemain'%}
                   <td><a href="#" class="btn btn-info" role="button">Lepas</a></td>
                   {% endif %}
                 {% endfor %}

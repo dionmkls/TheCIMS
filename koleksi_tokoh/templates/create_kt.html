@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+<title>The CIMS F-11</title>
+{% endblock meta %}
+
+{% block content %}
+<div class="container">
+  <div class="row text-center mt-3 py-5">
+      <div class="col mb-3">
+        <h2>Buat Koleksi Tokoh</h2>
+
+      </div>
+      <form class="mt-3" method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label class="form-label">Nama Tokoh</label>
+          <select placeholder="Masukkan nilai" class="form-select"  id="tokohNama" name="tokohNama">
+            <option selected value="1">Satu</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+          <div class="mb-3">
+            <label class="form-label">ID Koleksi</label>
+            <select placeholder="Masukkan nilai" class="form-select"  id="k_id" name="k_id">
+              <option selected value="1">Satu</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Submit</button>
+        </form>
+  </div>
+</div>
+
+{% endblock content %}

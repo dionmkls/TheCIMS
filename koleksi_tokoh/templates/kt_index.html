@@ -38,7 +38,7 @@
                   <td>{{pd.nama_tokoh}}</td>
                   <td>{{pd.id_koleksi}}</td>
 
-                  {% if request.session.tipe == 'admin'%}
+                  {% if request.session.tipe == 'pemain'%}
                   <td> <button type='submit'> Jual </button> </td>
                   {% endif %}
                 {% endfor %}
