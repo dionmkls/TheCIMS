@@ -23,8 +23,10 @@ def index(request):
 
   with connection.cursor() as cursor:
     cursor.execute("set search_path to cims")
-    cursor.execute(f"""SELECT * FROM KATEGORI_APPAREL""")
+    cursor.execute(f"""SELECT * FROM MENGGUNAKAN_APPAREL AS MA, APPAREL AS A, KOLEKSI_JUAL_BELI AS KJB 
+    WHERE MA.Id_Koleksi = A.Id_Koleksi AND MA.Id_Koleksi = KJB.Id_Koleksi;""")
+    # cursor.execute(f"""SELECT * FROM MENGGUNAKAN_APPAREL INNER JOIN APPAREL ON MENGGUNAKAN_APPAREL.Id_Koleksi = APPAREL.Id_Koleksi;""")
     row = dictfetchall(cursor)
     print(row)
   context = {'row':row}
-  return render(request, 'ka_index.html', context)
+  return render(request, 'menggunakan_apparel_index.html', context)

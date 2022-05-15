@@ -23,8 +23,8 @@ def index(request):
 
   with connection.cursor() as cursor:
     cursor.execute("set search_path to cims")
-    cursor.execute(f"""SELECT * FROM KATEGORI_APPAREL""")
+    cursor.execute(f"""SELECT * FROM WARNA_KULIT""")
     row = dictfetchall(cursor)
     print(row)
   context = {'row':row}
-  return render(request, 'ka_index.html', context)
+  return render(request, 'warnakulit.html', context)

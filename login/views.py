@@ -81,4 +81,4 @@ def logout(request):
     # Hilangkan semua dari session
     request.session.flush()
 
-    return redirect("../../")
+    return redirect("main:home")
