@@ -30,3 +30,6 @@ def index(request):
     print(row)
   context = {'row':row}
   return render(request, 'menggunakan_apparel_index.html', context)
+
+def createMenggunakanApparel(request):
+  return render(request, 'create_menggunakan_apparel.html')

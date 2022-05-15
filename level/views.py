@@ -28,3 +28,9 @@ def index(request):
     print(row)
   context = {'row':row}
   return render(request, 'level_index.html', context)
+
+def createLevel(request):
+    return render(request, 'create_level.html')
+
+def updateLevel(request):
+    return render(request, 'update_level.html')

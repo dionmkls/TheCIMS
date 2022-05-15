@@ -30,7 +30,7 @@
                 <tr>
                   <td>{{pd.kode}}</td>
                   {% if request.session.tipe == 'Admin'%}
-                  <td><button type='submit'>Delete</button></td>
+                  <td><a href="#" class="btn btn-info" role="button">Delete</a></td>
                   {% endif %}
                 {% endfor %}
               </tbody>

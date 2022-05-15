@@ -6,4 +6,5 @@ app_name = 'warna_kulit'
 
 urlpatterns = [
     path('',views.index, name='index'),
+    path('createWarnaKulit/',views.createWarnaKulit, name='createWarnaKulit'),
 ]
