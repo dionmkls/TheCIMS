@@ -33,7 +33,16 @@ def index(request):
   context = {'row':row}
   return render(request, 'kt_index.html', context)
 
-
+def createKoleTokoh(request):
+  if "pengguna" in request.session:
+    isLogged = True
+  else:
+    isLogged = False
+  if not isLogged:
+    return redirect('main:home')
+  if request.session["tipe"] == 'Admin':
+    return redirect('main:home')
+  return render(request, 'create_kt.html')
 def dictfetchall(cursor):
     "Returns all rows from a cursor as a dict"
     desc = cursor.description

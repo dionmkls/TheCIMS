@@ -29,3 +29,13 @@ def index(request):
   context = {'row':row}
   return render(request, 'ka_index.html', context)
 
+def createKa(request):
+  if "pengguna" in request.session:
+    isLogged = True
+  else:
+    isLogged = False
+
+  if not isLogged:
+    return redirect('main:home')
+
+  return render(request, 'ka_create.html')

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+<title>The CIMS F-11</title>
+{% endblock meta %}
+
+{% block content %}
+<div class="container">
+  <div class="row text-center mt-3 py-5">
+      <div class="col mb-3">
+        <h2>Buat Koleksi</h2>
+          <a href="{% url 'koleksi:buat_rambut' %}">
+            <button class="btn btn-outline-primary" type="button">
+                Buat Rambut
+            </button>
+          </a>
+          <a href="{% url 'koleksi:buat_mata' %}">
+            <button class="btn btn-outline-primary" type="button">
+                Buat Mata
+            </button>
+          </a>
+          <a href="{% url 'koleksi:buat_rumah' %}">
+            <button class="btn btn-outline-primary" type="button">
+                Buat Rumah
+            </button>
+          </a>
+          <a href="{% url 'koleksi:buat_barang' %}">
+            <button class="btn btn-outline-primary" tspe="button">
+                Buat Barang
+            </button>
+          </a>
+          <a href="{% url 'koleksi:buat_apparel' %}">
+            <button class="btn btn-outline-primary" type="button">
+                Buat Apparel
+            </button>
+          </a>
+      </div>
+  </div>
+</div>
+
+{% endblock content %}
