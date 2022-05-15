@@ -66,7 +66,7 @@ INSTALLED_APPS = [
     'menggunakan_apparel',
     'makan',
     'makanan',
-    'menjalankan_misi_utama',
+    'menjalankan_misi',
 ]
 
 MIDDLEWARE = [
