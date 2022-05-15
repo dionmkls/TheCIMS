@@ -10,7 +10,7 @@
 <div class="container">
   <div class="row text-center mt-3 py-5">
       <div class="col mb-3">
-        <h2>List Makan</h2>
+        <h2>List Makanan</h2>
       </div>
   </div>
   <div class="row justify-content-center">
@@ -19,23 +19,26 @@
           <table id="example" class="table table-hover">
               <thead>
                   <tr>
-                    {% if request.session.tipe == 'Admin'%}
-                  <th scope="col">Username Pengguna</th>
+                  <th scope="col">Nama</th>
+                  <th scope="col">Harga</th>
+                  <th scope="col">Tingkat Energi</th>
+                  <th scope="col">Tingkat Kelaparan</th>
+                  {% if request.session.tipe == 'Admin'%}
+                  <th scope="col">Action</th>
                   {% endif %}
-                  <th scope="col">Tokoh</th>
-                  <th scope="col">Nama Makanan</th>
-                  <th scope="col">Waktu</th>
                   </tr>
               </thead>
               <tbody>
                 {% for pd in row %}
                 <tr>
-                    {% if request.session.tipe == 'Admin'%}
-                  <td>{{pd.Username_pengguna}}</td>
+                  <td>{{pd.nama}}</td>
+                  <td>{{pd.harga}}</td>
+                  <td>{{pd.tingkat_energi}}</td>
+                  <td>{{pd.tingkat_kelaparan}}</td>
+                  {% if request.session.tipe == 'Admin'%}
+                  <td> <button type='submit'> Update </button> </td>
+                  <td> <button type='submit'> Delete </button> </td>
                   {% endif %}
-                  <td>{{pd.Nama_tokoh}}</td>
-                  <td>{{pd.Nama_makanan}}</td>
-                  <td>{{pd.Waktu}}</td>
                 {% endfor %}
               </tbody>
           </table>
