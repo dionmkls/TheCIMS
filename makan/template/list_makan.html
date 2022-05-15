@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+<title>The CIMS F-11</title>
+{% endblock meta %}
+
+{% block content %}
+<div class="container">
+  <div class="row text-center mt-3 py-5">
+      <div class="col mb-3">
+        <h2>List Makan</h2>
+      </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md mb-3">
+      <div class="table-responsive">
+          <table id="example" class="table table-hover">
+              <thead>
+                  <tr>
+                    {% if request.session.tipe == 'Admin'%}
+                  <th scope="col">Username Pengguna</th>
+                  {% endif %}
+                  <th scope="col">Tokoh</th>
+                  <th scope="col">Nama Makanan</th>
+                  <th scope="col">Waktu</th>
+                  </tr>
+              </thead>
+              <tbody>
+                {% for pd in row %}
+                <tr>
+                    {% if request.session.tipe == 'Admin'%}
+                  <td>{{pd.Username_pengguna}}</td>
+                  {% endif %}
+                  <td>{{pd.Nama_tokoh}}</td>
+                  <td>{{pd.Nama_makanan}}</td>
+                  <td>{{pd.Waktu}}</td>
+                {% endfor %}
+              </tbody>
+          </table>
+      </div>
+    </div>
+  </div>  
+</div>
+
+{% endblock content %}

@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+<title>The CIMS F-11</title>
+{% endblock meta %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row text-center mt-3 py-5">
+      <div class="col mb-3">
+        <h2>Warna Kulit</h2>
+      </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md mb-3">
+      <div class="table-responsive">
+          <table id="example" class="table table-hover">
+              <thead>
+                  <tr>
+                  <th scope="col">Kode</th>
+                  {% if request.session.tipe == 'Admin'%}
+                  <th scope="col">Action</th>
+                  {% endif %}
+                  </tr>
+              </thead>
+              <tbody>
+                {% for x in updateable %}
+                <tr>
+                  <td>{{x.kode}}</td>
+                  {% if request.session.tipe == 'Admin'%}
+                  <td><a href="#" class="btn btn-info" role="button">Delete</a></td>
+                  {% endif %}
+                </tr>
+                {% endfor %}
+
+                {% for x in data %}
+                <tr>
+                  <td>{{x.kode}}</td>
+                  {% if request.session.tipe == 'Admin'%}
+                  <td><a href="#" class="btn btn-info disabled" role="button">Delete</a></td>
+                  {% endif %}
+                </tr>
+                {% endfor %}
+              </tbody>
+          </table>
+      </div>
+    </div>
+  </div>  
+</div>
+
+{% endblock content %}
