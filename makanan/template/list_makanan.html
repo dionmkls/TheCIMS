@@ -23,8 +23,8 @@
                   <th scope="col">Harga</th>
                   <th scope="col">Tingkat Energi</th>
                   <th scope="col">Tingkat Kelaparan</th>
-                  {% if request.session.tipe == 'admin'%}
-                  <th scope="col"> Action</th>
+                  {% if request.session.tipe == 'Admin'%}
+                  <th scope="col">Action</th>
                   {% endif %}
                   </tr>
               </thead>
@@ -35,7 +35,7 @@
                   <td>{{pd.harga}}</td>
                   <td>{{pd.tingkat_energi}}</td>
                   <td>{{pd.tingkat_kelaparan}}</td>
-                  {% if request.session.tipe == 'admin'%}
+                  {% if request.session.tipe == 'Admin'%}
                   <td> <button type='submit'> Update </button> </td>
                   <td> <button type='submit'> Delete </button> </td>
                   {% endif %}
