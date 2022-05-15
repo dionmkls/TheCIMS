@@ -25,4 +25,5 @@ urlpatterns = [
     path('koleksi_tokoh/', include('koleksi_tokoh.urls')),
     path('tokoh/', include('tokoh.urls')),
     path('bekerja/', include('bekerja.urls')),
+    path('pekerjaan/', include('pekerjaan.urls')),
 ]
