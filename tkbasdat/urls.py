@@ -30,6 +30,7 @@ urlpatterns = [
     path('bekerja/', include('bekerja.urls')),
     path('pekerjaan/', include('pekerjaan.urls')),
     path('makan/', include('makan.urls')),
-    path('makanan/', include('makanan.urls'))
+    path('makanan/', include('makanan.urls')),
+    path('menjalankan_misi/', include('menjalankan_misi.urls'))
 ]
 

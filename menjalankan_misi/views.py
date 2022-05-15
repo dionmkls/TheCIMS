@@ -4,8 +4,7 @@ from django.db import connection
 from django.shortcuts import redirect, render
 
 # Create your views here.
-def list_makan(request):
-  print("cek")
+def list_menjalankan_misi_utama(request):
   if "pengguna" in request.session:
     isLogged = True
   else:
@@ -17,7 +16,7 @@ def list_makan(request):
   if request.session['tipe'] == 'Admin':
     with connection.cursor() as cursor:
       cursor.execute("set search_path to cims")
-      cursor.execute("SELECT * FROM MAKAN;")
+      cursor.execute("SELECT * FROM MENJALANKAN_MISI_UTAMA;")
       row = dictfetchall(cursor)
     context = {'row':row}
 
@@ -26,7 +25,7 @@ def list_makan(request):
 
     with connection.cursor() as cursor:
       cursor.execute("set search_path to cims")
-      cursor.execute("SELECT * FROM MAKAN WHERE USERNAME_PENGGUNA =" + uname + ";")
+      cursor.execute("SELECT * FROM MAKAN WHERE MENJALANKAN_MISI_UTAMA =" + uname + ";")
       row = dictfetchall(cursor)
     context = {'row':row}
 
