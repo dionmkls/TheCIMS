@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+<title>The CIMS F-11</title>
+{% endblock meta %}
+
+{% block content %}
+<div class="container">
+  <div class="row text-center mt-3 py-5">
+    <div class="col mb-3">
+      <h2>Update Barang</h2>
+    </div>
+  </div>
+  <div class="row text-left">
+      <form class="mt-3" method="post">
+        {% csrf_token %}
+          <div class="mb-3">
+            <label class="form-label" align="left">Id</label>
+            <input value="BRxxx" class="form-control"  id="apparelId" name="apparelId" disabled>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Nama</label>
+            <input placeholder="Masukkan nilai" class="form-control"  id="nama" name="nama">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Harga Jual</label>
+            <input placeholder="Masukkan nilai" class="form-control"  id="jual" name="jual">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Harga Beli</label>
+            <input placeholder="Masukkan nilai" class="form-control"  id="beli" name="beli">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Tingkat Energi</label>
+            <input placeholder="Masukkan nilai" class="form-control"  id="energi" name="energi">
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Update</button>
+        </form>
+  </div>
+</div>
+
+{% endblock content %}

@@ -114,6 +114,128 @@ def list_apparel(request):
 
 
 
+def buatKoleksi(request):
+  if "pengguna" in request.session:
+    isLogged = True
+  else:
+    isLogged = False
+
+  if not isLogged:
+    return redirect('main:home')
+  return render(request,'k_create_page.html')
+
+def buatAppa(request):
+  if "pengguna" in request.session:
+    isLogged = True
+  else:
+    isLogged = False
+
+  if not isLogged:
+    return redirect('main:home')
+  return render(request, 'create_apparel.html')
+
+def buatBar(request):
+  if "pengguna" in request.session:
+    isLogged = True
+  else:
+    isLogged = False
+
+  if not isLogged:
+    return redirect('main:home')
+  return render(request, 'create_barang.html')
+
+def buatMat(request):
+  if "pengguna" in request.session:
+    isLogged = True
+  else:
+    isLogged = False
+
+  if not isLogged:
+    return redirect('main:home')
+  return render(request, 'create_mata.html')
+
+def buatRam(request):
+  if "pengguna" in request.session:
+    isLogged = True
+  else:
+    isLogged = False
+
+  if not isLogged:
+    return redirect('main:home')
+  return render(request, 'create_rambut.html')
+
+def buatRum(request):
+  if "pengguna" in request.session:
+    isLogged = True
+  else:
+    isLogged = False
+
+  if not isLogged:
+    return redirect('main:home')
+  return render(request, 'create_rumah.html')
+
+
+def updaAppa(request):
+  if "pengguna" in request.session:
+    isLogged = True
+  else:
+    isLogged = False
+
+  if not isLogged:
+    return redirect('main:home')
+  return render(request, 'update_apparel.html')
+
+def updaBar(request):
+  if "pengguna" in request.session:
+    isLogged = True
+  else:
+    isLogged = False
+
+  if not isLogged:
+    return redirect('main:home')
+  return render(request, 'update_barang.html')
+
+def updaMat(request):
+  if "pengguna" in request.session:
+    isLogged = True
+  else:
+    isLogged = False
+
+  if not isLogged:
+    return redirect('main:home')
+  return render(request, 'update_mata.html')
+
+def updaRam(request):
+  if "pengguna" in request.session:
+    isLogged = True
+  else:
+    isLogged = False
+
+  if not isLogged:
+    return redirect('main:home')
+  return render(request, 'update_rambut.html')
+
+
+def updaRum(request):
+  if "pengguna" in request.session:
+    isLogged = True
+  else:
+    isLogged = False
+
+  if not isLogged:
+    return redirect('main:home')
+  return render(request, 'update_rumah.html')
+
+
+
+
+
+
+
+
+
+
+
 
 
 
