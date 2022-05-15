@@ -14,11 +14,22 @@ def list_makan(request):
   if not isLogged:
     return redirect('main:home')
 
-  with connection.cursor() as cursor:
-    cursor.execute("set search_path to cims")
-    cursor.execute("SELECT * FROM MAKAN;")
-    row = dictfetchall(cursor)
-  context = {'row':row}
+  if request.session['tipe'] == 'Admin':
+    with connection.cursor() as cursor:
+      cursor.execute("set search_path to cims")
+      cursor.execute("SELECT * FROM MAKAN;")
+      row = dictfetchall(cursor)
+    context = {'row':row}
+
+  if request.session['tipe'] == 'Pemain':
+    uname = request.session.get("pengguna")
+
+    with connection.cursor() as cursor:
+      cursor.execute("set search_path to cims")
+      cursor.execute("SELECT * FROM MAKAN WHERE USERNAME_PENGGUNA =" + uname + ";")
+      row = dictfetchall(cursor)
+    context = {'row':row}
+
   return render(request, 'list_makan.html', context)
 
 def dictfetchall(cursor):
