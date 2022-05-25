@@ -1,6 +1,7 @@
 from distutils.sysconfig import customize_compiler
 from django.db import connection
 from django.shortcuts import redirect, render
+from django.contrib import messages
 
 # Create your views here.
 def dictfetchall(cursor):
@@ -49,7 +50,77 @@ def index(request):
   return render(request, 'level_index.html', {'data':result, 'updateable':resultx})
 
 def createLevel(request):
-    return render(request, 'create_level.html')
+  if not (request.session.get("pengguna", False)):
+    return redirect("main:index")
+    
+  if request.method == "POST":
+    with connection.cursor() as cursor:
+      cursor.execute("set search_path to cims")
+      try:
+          level = request.POST.get('level')
+          xp = request.POST.get('xp')
+          print(level)
+          print(xp)
+          cursor.execute(f"""
+          INSERT INTO LEVEL (level, xp) VALUES
+          ('{level}', '{xp}')
+          """)
+          print("masuk")
+          return redirect("level:index")
+      except:
+          print("ga masuk")
+          messages.add_message(request, messages.WARNING, f"Terdapat gangguan, mohon mencoba kembali")
+      cursor.execute("set search_path to public")
 
-def updateLevel(request):
-    return render(request, 'update_level.html')
+  return render(request, 'create_level.html')
+
+def updateLevel(request, level):
+  if not (request.session.get("pengguna", False)):
+    return redirect("main:index")
+  
+  with connection.cursor() as cursor:
+    cursor.execute("set search_path to cims")
+    cursor.execute(f"""SELECT xp FROM LEVEL
+    WHERE level = '{level}';""")
+    awal = dictfetchall(cursor)
+    print(awal)
+    response = {'awal':awal}
+
+  if request.method == 'POST':
+    xp = request.POST.get('xp')
+
+    print(level)
+    print(xp)
+    with connection.cursor() as cursor:
+      cursor.execute("set search_path to cims")
+      try:
+          cursor.execute(f"""
+          UPDATE LEVEL SET xp = '{xp}' WHERE level = '{level}'
+          """)
+          print("masuk")
+          cursor.execute("set search_path to public")
+          return redirect("level:index")
+      except:
+          print("ga masuk")
+          messages.add_message(request, messages.WARNING, f"Terdapat gangguan, mohon mencoba kembali")
+      cursor.execute("set search_path to public")
+
+  return render(request, 'update_level.html', response)
+
+def deleteLevel(request, level, xp):
+  if not (request.session.get("pengguna", False)):
+    return redirect("main:index")
+
+  with connection.cursor() as cursor:
+    cursor.execute("set search_path to cims")
+    cursor.execute(f"""
+      DELETE FROM LEVEL WHERE level='{level}' AND xp='{xp}'
+      """)
+    print("berhasil delete")
+    cursor.execute("set search_path to public")
+
+    return redirect("level:index")
+      
+    cursor.execute("set search_path to public")
+
+  return redirect('level:index')

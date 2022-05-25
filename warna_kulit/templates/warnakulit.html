@@ -31,7 +31,13 @@
                 <tr>
                   <td>{{x.kode}}</td>
                   {% if request.session.tipe == 'Admin'%}
-                  <td><a href="#" class="btn btn-info" role="button">Delete</a></td>
+                  <td>
+                    <form action="{% url 'warna_kulit:deleteWarnaKulit' kode=x.kode %}" id="form-action" method="POST">
+                      {% csrf_token %}
+                      <input type="text" name="kode" value="{{ x.0 }}" class="form-control" id="inputidPD" hidden>
+                      <button type="submit" class="btn btn-outline-danger">Delete</button>
+                    </form>
+                  </td>
                   {% endif %}
                 </tr>
                 {% endfor %}
@@ -40,7 +46,13 @@
                 <tr>
                   <td>{{x.kode}}</td>
                   {% if request.session.tipe == 'Admin'%}
-                  <td><a href="#" class="btn btn-info disabled" role="button">Delete</a></td>
+                  <td>
+                    <form action="{% url 'warna_kulit:deleteWarnaKulit' kode=x.kode %}" id="form-action" method="POST">
+                      {% csrf_token %}
+                      <input type="text" name="kode" value="{{ x.0 }}" class="form-control" id="inputidPD" hidden>
+                      <button type="submit" class="btn btn-outline-danger disabled">Delete</button>
+                    </form>
+                  </td>
                   {% endif %}
                 </tr>
                 {% endfor %}

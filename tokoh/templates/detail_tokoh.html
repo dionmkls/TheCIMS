@@ -2,7 +2,7 @@
 {% load static %} 
 
 {% block meta %}
-<link rel="stylesheet" href="{% static 'css/login.css' %}">
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
 <title>The CIMS F-11</title>
 {% endblock meta %}
 
@@ -16,7 +16,7 @@
     <div class="row justify-content-center">
     <div class="col-md-6 mb-3">
       <label for="namaPengguna" class="form-label">Nama:</label>
-      <input type="text" value="{{ response.nama }}" class="form-control" id="namaPengguna"disabled>
+      <input type="text" value="{{ context.tokoh.0.username_pengguna }}" class="form-control" id="namaPengguna"disabled>
     </div>
   </div>
   <div class="row justify-content-center">
@@ -27,25 +27,25 @@
   </div>
   <div class="row justify-content-center">
     <div class="col-md-6 mb-3">
-      <label for="idMata" class="form-label">ID Mata: </label>
+      <label for="idMata" class="form-label">ID Mata:</label>
       <input type="text" value="{{ response.idmata }}" class="form-control" id="idMata"disabled>
     </div>
   </div>
   <div class="row justify-content-center">
     <div class="col-md-6 mb-3">
-      <label for="idRumah" class="form-label">ID Rumah: </label>
+      <label for="idRumah" class="form-label">ID Rumah:</label>
       <input type="text" value="{{ response.idrumah }}" class="form-control" id="idRumah"disabled>
     </div>
   </div>
   <div class="row justify-content-center">
     <div class="col-md-6 mb-3">
-      <label for="warnaKulit" class="form-label">Warna Kulit: </label>
+      <label for="warnaKulit" class="form-label">Warna Kulit:</label>
       <input type="text" value="{{ response.warnaKulit }}" class="form-control" id="warnaKulit"disabled>
     </div>
   </div>
   <div class="row justify-content-center">
     <div class="col-md-6 mb-3">
-      <label for="pekerjaan" class="form-label">Pekerjaan: </label>
+      <label for="pekerjaan" class="form-label">Pekerjaan:</label>
       <input type="text" value="{{ response.pekerjaan }}" class="form-control" id="pekerjaan"disabled>
     </div>
   </div>

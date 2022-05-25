@@ -1,6 +1,7 @@
 from distutils.sysconfig import customize_compiler
 from django.db import connection
 from django.shortcuts import redirect, render
+from django.contrib import messages
 
 # Create your views here.
 def dictfetchall(cursor):
@@ -41,4 +42,50 @@ def index(request):
   return render(request, 'warnakulit.html', {'data':result, 'updateable':resultx})
 
 def createWarnaKulit(request):
-  return render(request, 'create_warna_kulit.html')
+  if not (request.session.get("pengguna", False)):
+    return redirect("main:index")
+
+  response = {}
+  with connection.cursor() as cursor:
+    cursor.execute("set search_path to cims")
+    cursor.execute(f"SELECT kode FROM WARNA_KULIT;")
+    kode = dictfetchall(cursor)
+    response['kode'] = kode
+    cursor.execute("set search_path to public")
+    
+  if request.method == "POST":
+    with connection.cursor() as cursor:
+      cursor.execute("set search_path to cims")
+      try:
+          kode = request.POST.get('kode')
+          print(kode)
+          cursor.execute(f"""
+          INSERT INTO WARNA_KULIT (kode) VALUES
+          ('{kode}')
+          """)
+          print("masuk")
+          return redirect("warna_kulit:index")
+      except:
+          print("ga masuk")
+          messages.add_message(request, messages.WARNING, f"Terdapat gangguan, mohon mencoba kembali")
+      cursor.execute("set search_path to public")
+  return render(request, 'create_warna_kulit.html',response)
+
+def deleteWarnaKulit(request, kode):
+  if not (request.session.get("pengguna", False)):
+    return redirect("main:index")
+
+  print(kode)
+  with connection.cursor() as cursor:
+    cursor.execute("set search_path to cims")
+    cursor.execute(f"""
+      DELETE FROM WARNA_KULIT WHERE kode = '{kode}'
+      """)
+    print("berhasil delete")
+    cursor.execute("set search_path to public")
+
+    return redirect("warna_kulit:index")
+      
+    cursor.execute("set search_path to public")
+
+  return redirect('warna_kulit:index')

@@ -32,8 +32,18 @@
                   <td>{{x.level}}</td>
                   <td>{{x.xp}}</td>
                   {% if request.session.tipe == 'Admin'%}
-                  <td><a href="{% url 'level:updateLevel' %}" class="btn btn-info" role="button">Update</a></td>
-                  <td><a href="#" class="btn btn-info" role="button">Delete</a></td>
+                  <td>
+                    <form action="{% url 'level:updateLevel' level=x.level %}" id="form-action" method="POST">
+                      {% csrf_token %}
+                      <!-- <input type="text" name="level" value="{{ x.0 }}" class="form-control" id="inputidPD" hidden> -->
+                      <button type="submit" class="btn btn-outline-warning">Update</button>
+                    </form>
+                    <br>
+                    <form action="{% url 'level:deleteLevel' level=x.level xp=x.xp %}" id="form-action" method="POST">
+                      {% csrf_token %}
+                      <button type="submit" class="btn btn-outline-danger">Delete</button>
+                    </form>
+                  </td>
                   {% endif %}
                 </tr>
                 {% endfor %}
@@ -43,8 +53,18 @@
                   <td>{{x.level}}</td>
                   <td>{{x.xp}}</td>
                   {% if request.session.tipe == 'Admin'%}
-                  <td><a href="{% url 'level:updateLevel' %}" class="btn btn-info" role="button">Update</a></td>
-                  <td><a href="#" class="btn btn-info disabled" role="button">Delete</a></td>
+                  <td>
+                    <form action="{% url 'level:updateLevel' level=x.level %}" id="form-action" method="POST">
+                      {% csrf_token %}
+                      <!-- <input type="text" name="level" value="{{ x.0 }}" class="form-control" id="inputidPD" hidden> -->
+                      <button type="submit" class="btn btn-outline-warning">Update</button>
+                    </form>
+                    <br>
+                    <form action="{% url 'level:deleteLevel' level=x.level xp=x.xp %}" id="form-action" method="POST">
+                      {% csrf_token %}
+                      <button type="submit" class="btn btn-outline-danger" disabled>Delete</button>
+                    </form>
+                  </td>
                   {% endif %}
                 </tr>
                 {% endfor %}

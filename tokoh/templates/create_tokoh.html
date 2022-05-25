@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Create Tokoh</title>
+{% endblock meta %}
+
+{% block content %}
+<div class="container">
+  <div class="row text-center my-3">
+      <div class="col">
+        <h2>Form Buat Tokoh</h2>
+      </div>
+  </div>
+  <form action="" id="form-action" method="POST">
+    {% csrf_token %}
+      <div class="row justify-content-center">
+        <div class="col-md-6 mb-3">       
+          <h3>Form Buat Tokoh</h3>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-6 mb-3">       
+          <label for="inputMenggunakanApparel" class="form-label">Nama:</label>
+          <input type="text" name="menggunakan_apparel" class="form-control" id="inputMenggunakanApparel">
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-6 mb-3">       
+          <label for="inputJenisKelamin" class="form-label">Jenis Kelamin:</label>
+          <select id="inputJenisKelamin" class="form-control" >
+            <option value="none">Jenis Kelamin...</option>
+            <option value="Laki-laki">Laki-laki</option>
+            <option value="Perempuan">Perempuan</option>
+          </select>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-6 mb-3">       
+          <label for="inputWarnaKulit" class="form-label">Warna Kulit:</label>
+          <select id="inputWarnaKulit" class="form-control" >
+            <option value="none">Warna Kulit...</option>
+            {% for w in warnak %}
+            <option value="{{p.idpd}}">{{w.warnak}}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-6 mb-3">       
+          <label for="inputMenggunakanApparel" class="form-label">Pekerjaan:</label>
+          <input type="text" name="menggunakan_apparel" class="form-control" id="inputMenggunakanApparel">
+        </div>
+      </div>
+      <!-- <div class="row justify-content-center" hidden>
+        <div class="col-md-6 mb-3">
+            <input type="text" name="idpd" value="" class="form-control" id="idpd">
+        </div>
+      </div> -->
+      <div class="row justify-content-center text-center">
+          <div class="col-md-6 mb-3">       
+              <button type="submit" class="btn btn-primary">Simpan</button>
+          </div>
+      </div>
+  </form>
+</div>
+{% endblock content %}
