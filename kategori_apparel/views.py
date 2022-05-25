@@ -23,10 +23,22 @@ def index(request):
 
   with connection.cursor() as cursor:
     cursor.execute("set search_path to cims")
-    cursor.execute(f"""SELECT * FROM KATEGORI_APPAREL""")
+    cursor.execute(f"""select *
+      from kategori_apparel
+      where nama_kategori in(
+      select nama_kategori
+      from kategori_apparel
+      join apparel a on kategori_apparel.nama_kategori = a.kategori_apparel);""")
     row = dictfetchall(cursor)
-    print(row)
-  context = {'row':row}
+
+    cursor.execute(f"""select *
+      from kategori_apparel
+      where nama_kategori not in(
+      select nama_kategori
+      from kategori_apparel
+      join apparel a on kategori_apparel.nama_kategori = a.kategori_apparel);""")
+    rows = dictfetchall(cursor)
+  context = {'row':row, 'rows':rows}
   return render(request, 'ka_index.html', context)
 
 def createKa(request):
@@ -37,5 +49,28 @@ def createKa(request):
 
   if not isLogged:
     return redirect('main:home')
+  if request.session["tipe"] == "Pemain":
+    return redirect('main:home')
 
+  if request.method == 'POST':
+    print("Post")
+    temp = list()
+    nama = request.POST["categoryname"]
+    temp.append(nama)
+    cekNama = tuple(temp)
+    with connection.cursor() as cursor:
+      cursor.execute("set search_path to cims")
+      cursor.execute(f"""select * from kategori_apparel""")
+      row = cursor.fetchall()
+      print(row)
+      if cekNama not in row:
+        print(nama)
+        cursor.execute(f"""insert into kategori_apparel values('{nama}')""")
+        return redirect('kategori_apparel:index')
   return render(request, 'ka_create.html')
+def deleteKa(request,namakategori):
+  with connection.cursor() as cursor:
+    cursor.execute("set search_path to cims")
+    cursor.execute(f"""delete from kategori_apparel where nama_kategori='{namakategori}' """)
+    return redirect('kategori_apparel:index')
+

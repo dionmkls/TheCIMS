@@ -18,17 +18,17 @@
         <div class="mb-3">
           <label class="form-label">Nama Tokoh</label>
           <select placeholder="Masukkan nilai" class="form-select"  id="tokohNama" name="tokohNama">
-            <option selected value="1">Satu</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            {% for pd in tokoh %}
+            <option value={{pd.nama}}>{{pd.nama}}</option>
+            {% endfor %}
           </select>
         </div>
           <div class="mb-3">
             <label class="form-label">ID Koleksi</label>
             <select placeholder="Masukkan nilai" class="form-select"  id="k_id" name="k_id">
-              <option selected value="1">Satu</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+            {% for pd in kole %}
+            <option value={{pd.id}}>{{pd.id}}</option>
+            {% endfor %}
             </select>
           </div>
           <button type="submit" class="btn btn-primary w-100">Submit</button>

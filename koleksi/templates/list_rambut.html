@@ -22,7 +22,7 @@
                   <th scope="col">Id</th>
                   <th scope="col">Harga Jual</th>
                   <th scope="col">Tipe Rambut</th>
-                  {% if request.session.tipe == 'admin'%}
+                  {% if request.session.tipe == 'Admin'%}
                   <th scope="col"> Action</th>
                   {% endif %}
                   </tr>
@@ -33,10 +33,29 @@
                   <td>{{pd.id}}</td>
                   <td>{{pd.harga}}</td>
                   <td>{{pd.tipe}}</td>
-                  {% if request.session.tipe == 'admin'%}
-                  <td> <button type='submit'> Update </button> </td>
-                  <td> <button type='submit'> Delete </button> </td>
+                  {% if request.session.tipe == 'Admin'%}
+                  <td><a href="{% url 'koleksi:update_rambut' id=pd.id %}">
+                    <button type='submit' class='form-control'> Update </button>
+                  </a>
+                </td>
                   {% endif %}
+                </tr>
+                {% endfor %}
+                {% for pd in rows %}
+                <tr>
+                  <td>{{pd.id}}</td>
+                  <td>{{pd.harga}}</td>
+                  <td>{{pd.tipe}}</td>
+                  {% if request.session.tipe == 'Admin'%}
+                  <a href="{% url 'koleksi:update_rambut' id=pd.id %}">
+                    <button type='submit' class='form-control'> Update </button>
+                  </a>
+                  <a href="{% url 'koleksi:delete_rambut' id=pd.id %}">
+                    <button type='submit' class='form-control'> Delete </button>
+                  </a>
+                  </td>
+                  {% endif %}
+                </tr>
                 {% endfor %}
               </tbody>
           </table>
