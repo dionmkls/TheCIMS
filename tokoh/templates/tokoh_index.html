@@ -2,11 +2,12 @@
 {% load static %} 
 
 {% block meta %}
-<link rel="stylesheet" href="{% static 'css/login.css' %}">
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
 <title>The CIMS F-11</title>
 {% endblock meta %}
 
 {% block content %}
+
 <div class="container">
   <div class="row text-center mt-3 py-5">
       <div class="col mb-3">
@@ -19,7 +20,7 @@
         <table id="example" class="table table-hover">
           <thead>
             <tr>
-              {{% if request.session.tipe == 'admin'%}
+              {% if request.session.tipe == 'Admin'%}
               <th scope="col">Username Pemain</th>
               {% endif %}
               <th scope="col">Nama</th>
@@ -29,7 +30,6 @@
               <th scope="col">Energi</th>
               <th scope="col">Kelaparan</th>
               <th scope="col">Hubungan Sosial</th>
-              <th scope="col">Warna Kulit</th>
               <th scope="col">Level</th>
               <th scope="col">Action</th>
             </tr>
@@ -37,7 +37,7 @@
           <tbody>
               {% for t in tokoh %}
               <tr>
-                  {{% if request.session.tipe == 'Admin'%}
+                  {% if request.session.tipe == 'Admin'%}
                       <td>{{t.username_pengguna}}</td>
                   {% endif %}
                   <td>{{t.nama}}</td>
@@ -47,7 +47,6 @@
                   <td>{{t.energi}}</td>
                   <td>{{t.kelaparan}}</td>
                   <td>{{t.hubungan_sosial}}</td>
-                  <td>{{t.warna_kulit}}</td>
                   <td>{{t.level}}</td>
                   <td>
                       <form action="{% url 'tokoh:detailTokoh' %}" id="form-action" method="POST">
@@ -57,7 +56,7 @@
                           <button type="submit" class="btn btn-outline-primary">Detail</button>
                       </form>
   
-                      {{% if request.session.tipe == 'Pemain'%}
+                      {% if request.session.tipe == 'Pemain'%}
                       <form action="" id="form-action" method="POST">
                           {% csrf_token %}
                           <input type="text" name="uname" value="{{ t.uname }}" class="form-control" id="inputUname" aria-describedby="uname" hidden>
