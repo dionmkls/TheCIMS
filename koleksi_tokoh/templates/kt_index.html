@@ -7,6 +7,7 @@
 {% endblock meta %}
 
 {% block content %}
+{% include 'message.html' %}
 <div class="container">
   <div class="row text-center mt-3 py-5">
       <div class="col mb-3">
@@ -19,28 +20,49 @@
           <table id="example" class="table table-hover">
               <thead>
                   <tr>
-                  {% if request.session.tipe == 'admin'%}
+                  {% if request.session.tipe == 'Admin'%}
                   <th scope="col">Username Pengguna</th>
                   {% endif %}
                   <th scope="col">Tokoh</th>
                   <th scope="col">Id Koleksi</th>
-                  {% if request.session.tipe == 'admin'%}
+                  {% if request.session.tipe == 'Pemain'%}
                   <th scope="col"> Action</th>
                   {% endif %}
                   </tr>
               </thead>
               <tbody>
-                {% for pd in row %}
+                {% for pd in tdkdihapus %}
                 <tr>
-                  {% if request.session.tipe == 'admin'%}
+                  {% if request.session.tipe == 'Admin'%}
                   <td>{{pd.username_pengguna}}</td>
                   {% endif %}
                   <td>{{pd.nama_tokoh}}</td>
                   <td>{{pd.id_koleksi}}</td>
-
-                  {% if request.session.tipe == 'pemain'%}
-                  <td> <button type='submit'> Jual </button> </td>
+                </tr>
+                {% endfor %}
+                {% for pd in bukan %}
+                <tr>
+                  {% if request.session.tipe == 'Admin'%}
+                  <td>{{pd.username_pengguna}}</td>
                   {% endif %}
+                  <td>{{pd.nama_tokoh}}</td>
+                  <td>{{pd.id_koleksi}}</td>
+                </tr>
+                {% endfor %}
+                {% for pd in hasil %}
+                <tr>
+                  {% if request.session.tipe == 'Admin'%}
+                  <td>{{pd.username_pengguna}}</td>
+                  {% endif %}
+                  <td>{{pd.nama_tokoh}}</td>
+                  <td>{{pd.id_koleksi}}</td>
+                  {% if request.session.tipe == 'Pemain'%}
+                  <td> <a href="{% url 'koleksi_tokoh:delete_kt' namatokoh=pd.nama_tokoh id=pd.id_koleksi %}">
+                    <button type='submit' class="btn btn-primary w-100"> Delete </button>
+                  </a>  
+                  </td>
+                  {% endif %}
+                </tr>
                 {% endfor %}
               </tbody>
           </table>

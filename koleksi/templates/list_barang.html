@@ -24,7 +24,7 @@
                   <th scope="col">Harga Jual</th>
                   <th scope="col">Harga Beli</th>
                   <th scope="col">Tingkat Energi</th>
-                  {% if request.session.tipe == 'admin'%}
+                  {% if request.session.tipe == 'Admin'%}
                   <th scope="col"> Action</th>
                   {% endif %}
                   </tr>
@@ -37,10 +37,33 @@
                   <td>{{pd.harga}}</td>
                   <td>{{pd.harga_beli}}</td>
                   <td>{{pd.tingkat_energi}}</td>
-                  {% if request.session.tipe == 'admin'%}
-                  <td> <button type='submit'> Update </button> </td>
-                  <td> <button type='submit'> Delete </button> </td>
+                  {% if request.session.tipe == 'Admin'%}
+                  <td> 
+                    <a href="{% url 'koleksi:update_barang' id=pd.id %}">
+                      <button type='submit' class='form-control'> Update </button>
+                    </a>
+                  </td>
                   {% endif %}
+                </tr>
+                {% endfor %}
+                {% for pds in rows %}
+                <tr>
+                  <td>{{pds.id}}</td>
+                  <td>{{pds.nama}}</td>
+                  <td>{{pds.harga}}</td>
+                  <td>{{pds.harga_beli}}</td>
+                  <td>{{pds.tingkat_energi}}</td>
+                  {% if request.session.tipe == 'Admin'%}
+                  <td> 
+                    <a href="{% url 'koleksi:update_barang' id=pd.id %}">
+                      <button type='submit' class='form-control'> Update </button>
+                    </a>
+                    <a href="{% url 'koleksi:delete_barang' id=pds.id %}">
+                      <button type='submit' class='form-control'> Delete </button>
+                    </a>
+                  </td>
+                  {% endif %}
+                </tr>
                 {% endfor %}
               </tbody>
           </table>

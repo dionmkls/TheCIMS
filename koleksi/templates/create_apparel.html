@@ -18,41 +18,41 @@
         {% csrf_token %}
           <div class="mb-3">
             <label class="form-label" align="left">Id</label>
-            <input value="APxxx" class="form-control"  id="apparelId" name="apparelId" disabled>
+            <input value={{id}} class="form-control"  id="apparelId" name="apparelId" readonly required>
           </div>
           <div class="mb-3">
             <label class="form-label">Nama</label>
-            <input placeholder="Masukkan nilai" class="form-control"  id="nama" name="nama">
+            <input placeholder="Masukkan nilai" class="form-control"  id="nama" name="nama" required> 
           </div>
           <div class="mb-3">
             <label class="form-label">Harga Jual</label>
-            <input placeholder="Masukkan nilai" class="form-control"  id="jual" name="jual">
+            <input placeholder="Masukkan nilai" class="form-control"  id="jual" name="jual" required>
           </div>
           <div class="mb-3">
             <label class="form-label">Harga Beli</label>
-            <input placeholder="Masukkan nilai" class="form-control"  id="beli" name="beli">
+            <input placeholder="Masukkan nilai" class="form-control"  id="beli" name="beli" required>
           </div>
           <div class="mb-3">
             <label class="form-label">Warna Apparel</label>
-            <input placeholder="Masukkan nilai" class="form-control"  id="warna" name="warna">
+            <input placeholder="Masukkan nilai" class="form-control"  id="warna" name="warna" required>
           </div>
           <div class="mb-3">
             <label class="form-label">Kategori Apparel</label>
             <select placeholder="Masukkan nilai" class="form-select"  id="kApparel" name="kApparel">
-              <option selected value="1">Satu</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+              {% for pd in rows %}
+              <option value={{pd.nama_kategori}}>{{pd.nama_kategori}}</option>
+              {% endfor %}
             </select>
           </div>
           <div class="mb-3">
             <label class="form-label">Nama Pekerjaan</label>
             <select placeholder="Masukkan nilai" class="form-select"  id="pekerjaan" name="pekerjaan">
-              <option selected value="1">Satu</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+              {% for pds in row %}
+              <option value={{pds.nama}}>{{pds.nama}}</option>
+              {% endfor %}
             </select>
           </div>
-          <button type="submit" class="btn btn-primary w-100">Submit</button>
+          <button type="submit" class="btn btn-primary w-100">Simpan</button>
         </form>
   </div>
 </div>

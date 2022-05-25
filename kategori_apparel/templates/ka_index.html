@@ -20,7 +20,7 @@
               <thead>
                   <tr>
                   <th scope="col">Nama Kategori</th>
-                  {% if request.session.tipe == 'admin'%}
+                  {% if request.session.tipe == 'Admin'%}
                   <th scope="col"> Action</th>
                   {% endif %}
                   </tr>
@@ -29,9 +29,22 @@
                 {% for pd in row %}
                 <tr>
                   <td>{{pd.nama_kategori}}</td>
-                  {% if request.session.tipe == 'admin'%}
-                  <td> <button type='submit'> Delete </button> </td>
+                  {% if request.session.tipe == 'Admin'%}
+                  <td></td>
                   {% endif %}
+                </tr>
+                {% endfor %}
+                {% for pds in rows %}
+                <tr>
+                  <td>{{pds.nama_kategori}}</td>
+                  {% if request.session.tipe == 'Admin'%}
+                  <td>
+                    <a href="{% url 'kategori_apparel:delete_ka' namakategori=pds.nama_kategori %}">
+                      <button type='submit' class="btn btn-primary w-100"> Delete </button>
+                    </a> 
+                  </td>
+                  {% endif %}
+                </tr>
                 {% endfor %}
               </tbody>
           </table>

@@ -4,6 +4,7 @@ from . import views
 app_name = 'kategori_apparel'
 urlpatterns = [
     path('',views.index, name='index'),
-    path('create/', views.createKa, name='create_ka')
+    path('create/', views.createKa, name='create_ka'),
+    path("delete/<str:namakategori>", views.deleteKa, name="delete_ka")
 ]
 

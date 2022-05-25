@@ -18,23 +18,23 @@
         {% csrf_token %}
           <div class="mb-3">
             <label class="form-label" align="left">Id</label>
-            <input value="BRxxx" class="form-control"  id="apparelId" name="apparelId" disabled>
+            <input value={{id}} class="form-control"  id="apparelId" name="apparelId" readonly required>
           </div>
           <div class="mb-3">
             <label class="form-label">Nama</label>
-            <input placeholder="Masukkan nilai" class="form-control"  id="nama" name="nama">
+            <input placeholder="Masukkan nilai" class="form-control"  id="nama" name="nama" required>
           </div>
           <div class="mb-3">
             <label class="form-label">Harga Jual</label>
-            <input placeholder="Masukkan nilai" class="form-control"  id="jual" name="jual">
+            <input placeholder="Masukkan nilai" class="form-control"  id="jual" name="jual" required>
           </div>
           <div class="mb-3">
             <label class="form-label">Harga Beli</label>
-            <input placeholder="Masukkan nilai" class="form-control"  id="beli" name="beli">
+            <input placeholder="Masukkan nilai" class="form-control"  id="beli" name="beli" required>
           </div>
           <div class="mb-3">
             <label class="form-label">Tingkat Energi</label>
-            <input placeholder="Masukkan nilai" class="form-control"  id="energi" name="energi">
+            <input placeholder="Masukkan nilai" class="form-control"  id="energi" name="energi" required>
           </div>
           <button type="submit" class="btn btn-primary w-100">Submit</button>
         </form>
